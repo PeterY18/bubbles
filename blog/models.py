@@ -5,15 +5,16 @@ import os
 
 class Post(models.Model):
 
-    def get_image_path(instance, filename):
-        return os.path.join('photos', str(instance.id), filename)
+    #def get_image_path(instance, filename):
+    #    return os.path.join('photos', str(instance.id), filename)
 
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    thumbnail = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+    #thumbnail = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+    cover = models.ImageField(upload_to='images/')
 
     def publish(self):
         self.published_date = timezone.now()

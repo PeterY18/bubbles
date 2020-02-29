@@ -24,7 +24,6 @@ class Migration(migrations.Migration):
                 ('text', models.TextField()),
                 ('created_date', models.DateTimeField(default=django.utils.timezone.now)),
                 ('published_date', models.DateTimeField(blank=True, null=True)),
-                ('thumbnail', models.ImageField(blank=True, null=True, upload_to=blog.models.Post.get_image_path)),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
