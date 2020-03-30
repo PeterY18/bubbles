@@ -1,19 +1,21 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Tile</title>
+	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 <body>
 <div>
-<a href="/"><h1>Tile Low-Poly Blog</h1></a>
+<a href="/"><h1>Tile</h1></a>
+<p>A Low-Poly Blog</p>
 </div>
 {% for post in posts %}
 <div>
 	<p>published: {{ post.published_date }}</p>
 	<h2><a href="">{{ post.title }}</a></h2>
 	<p>{{ post.text|linebreaksbr }}</p>
-	<img src="{{ post.cover.url }}" alt="{{ post.title }}" width="360wp">
+	<img src="{{ post.cover.url }}" alt="{{ post.title }}">
 </div>
 {% endfor %}
 </body>
